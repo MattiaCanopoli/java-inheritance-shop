@@ -12,6 +12,13 @@ public class Utils {
 		return randomNumber;
 	}
 
+	public static long randomCode(long max, long min) {
+
+		Random rnd = new Random();
+		long randomNumber = rnd.nextLong(max - min) + min;
+		return randomNumber;
+	}
+
 	// given an int, return the lenght
 	public static int getIntLenght(int number) {
 		int intLenght = String.valueOf(number).length();
