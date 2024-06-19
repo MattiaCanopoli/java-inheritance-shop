@@ -16,4 +16,40 @@ public class Cuffie extends Prodotto {
 		this.wifi = wifi;
 	}
 
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public boolean isWifi() {
+		return wifi;
+	}
+
+	public void setWifi(boolean wifi) {
+		this.wifi = wifi;
+	}
+
+	public String getConnectivity() {
+
+		String connectivity;
+
+		if (wifi) {
+			connectivity = "Wi-Fi";
+		} else {
+			connectivity = "Cavo";
+		}
+
+		return connectivity;
+	}
+
+	public void getProductInfo() {
+		super.getProductInfo();
+		System.out.println("Colore: " + this.color);
+		System.out.println("Connettività: " + this.getConnectivity());
+		System.out.println("************************************");
+	}
+
 }

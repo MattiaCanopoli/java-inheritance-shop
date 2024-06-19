@@ -59,7 +59,7 @@ public class Prodotto {
 	}
 
 	public void getProductInfo() {
-		System.out.println("\n************************************");
+		System.out.println("************************************");
 		System.out.println("Brand: " + this.brand);
 		System.out.println("Nome prodotto: " + this.productName);
 		System.out.println("Codice prodotto: " + this.productCode);
