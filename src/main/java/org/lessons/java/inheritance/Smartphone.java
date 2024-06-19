@@ -32,4 +32,12 @@ public class Smartphone extends Prodotto {
 		this.ramGB = ramGB;
 	}
 
+	public void getProductInfo() {
+		super.getProductInfo();
+		System.out.println("Codice IMEI: " + this.imei);
+		System.out.println("RAM: " + this.ramGB + "GB");
+		System.out.println("************************************");
+
+	}
+
 }
