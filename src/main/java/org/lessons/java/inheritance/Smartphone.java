@@ -10,6 +10,16 @@ public class Smartphone extends Prodotto {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Costruttore per Smartphone. richiede i parametri: String productName, String
+	 * brand, float price, int vat, int ramGB
+	 * 
+	 * @param productName
+	 * @param brand
+	 * @param price
+	 * @param vat
+	 * @param ramGB
+	 */
 	public Smartphone(String productName, String brand, float price, int vat, int ramGB) {
 		super(productName, brand, price, vat);
 		this.ramGB = ramGB;
