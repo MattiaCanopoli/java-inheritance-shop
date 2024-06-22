@@ -1,3 +1,5 @@
 bin/
 *.class
 *.txt
+src/main/java/org/shop/java/Test.java
+carrello.java.shop.drawio
