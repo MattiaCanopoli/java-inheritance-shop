@@ -52,7 +52,7 @@ public class Prodotto {
 		return productCode;
 	}
 
-	public float vatPrice() {
+	public float getVatPrice() {
 		float vatPrice = this.price + (this.price * this.vat / 100);
 		return vatPrice;
 
@@ -64,8 +64,17 @@ public class Prodotto {
 		System.out.println("Nome prodotto: " + this.productName);
 		System.out.println("Codice prodotto: " + this.productCode);
 		System.out.println(String.format("Prezzo: %.2f €", this.price));
-		System.out.println(String.format("Prezzo + IVA: %.2f €", vatPrice()));
+		System.out.println(String.format("Prezzo + IVA: %.2f €", this.getVatPrice()));
 
+	}
+
+	@Override
+	public String toString() {
+		String className = this.getClass().getSimpleName();
+		String output = ("Tipo prodotto: " + className + "\n" + "Nome: " + this.getProductName() + "\n"
+				+ "Codice prodotto: " + this.getProductCode() + "\n" + "Prezzo finale: "
+				+ String.format("%.2f €", this.getVatPrice()));
+		return output;
 	}
 
 }
