@@ -2,6 +2,8 @@ package org.shop.java;
 
 import java.util.Scanner;
 
+import org.lessons.java.inheritance.Prodotto;
+
 public class CarrelloUtils {
 
 	/**
@@ -24,7 +26,7 @@ public class CarrelloUtils {
 	 * @param negativeInput compared to user input
 	 * @return boolean
 	 */
-	public static boolean verifyInput(String question, String positiveInput, String negativeInput) {
+	public static boolean checkInput(String question, String positiveInput, String negativeInput) {
 
 		Scanner scanner = new Scanner(System.in);
 		String yesOrNo;
@@ -51,6 +53,16 @@ public class CarrelloUtils {
 		} while (inputError);
 //		
 		return result;
+	}
+
+	public static Prodotto[] addToCarrello(Prodotto[] products, Prodotto product) {
+		Prodotto[] newProducts = new Prodotto[products.length + 1];
+		for (int i = 0; i < products.length; i++) {
+			newProducts[i] = products[i];
+		}
+		newProducts[newProducts.length - 1] = product;
+		products = newProducts;
+		return products;
 	}
 
 }
