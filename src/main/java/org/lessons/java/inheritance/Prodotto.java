@@ -71,8 +71,8 @@ public class Prodotto {
 	@Override
 	public String toString() {
 		String className = this.getClass().getSimpleName();
-		String output = ("Tipo prodotto: " + className + "\n" + "Nome: " + this.getProductName() + "\n"
-				+ "Codice prodotto: " + this.getProductCode() + "\n" + "Prezzo finale: "
+		String output = ("Tipo prodotto: " + className + "\n" + "Brand: " + this.getBrand() + "\n" + "Nome: "
+				+ this.getProductName() + "\n" + "Codice prodotto: " + this.getProductCode() + "\n" + "Prezzo finale: "
 				+ String.format("%.2f €", this.getVatPrice()));
 		return output;
 	}
