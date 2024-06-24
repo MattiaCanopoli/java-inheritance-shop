@@ -52,4 +52,11 @@ public class Cuffie extends Prodotto {
 		System.out.println("************************************");
 	}
 
+	@Override
+	public String toString() {
+		String infos = super.toString() + "\n" + "Colore: " + this.getColor() + "\n" + "Connettività: "
+				+ this.getConnectivity();
+		return infos;
+	}
+
 }

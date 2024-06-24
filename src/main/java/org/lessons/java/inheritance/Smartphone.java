@@ -3,7 +3,7 @@ package org.lessons.java.inheritance;
 public class Smartphone extends Prodotto {
 
 	private long imei;
-	private int ramGB;
+	private int memoryGB;
 
 	public Smartphone(String productName, String brand, float price, int vat) {
 		super(productName, brand, price, vat);
@@ -18,11 +18,11 @@ public class Smartphone extends Prodotto {
 	 * @param brand
 	 * @param price
 	 * @param vat
-	 * @param ramGB
+	 * @param memoryGB
 	 */
-	public Smartphone(String productName, String brand, float price, int vat, int ramGB) {
+	public Smartphone(String productName, String brand, float price, int vat, int memoryGB) {
 		super(productName, brand, price, vat);
-		this.ramGB = ramGB;
+		this.memoryGB = memoryGB;
 		this.imei = Utils.randomCode(999999999999999l, 111111111111111l);
 	}
 
@@ -34,20 +34,27 @@ public class Smartphone extends Prodotto {
 //		this.imei = imei;
 //	}
 
-	public int getRamGB() {
-		return ramGB;
+	public int getMemory() {
+		return this.memoryGB;
 	}
 
-	public void setRamGB(int ramGB) {
-		this.ramGB = ramGB;
+	public void setMemoryGB(int memoryGB) {
+		this.memoryGB = memoryGB;
 	}
 
 	public void getProductInfo() {
 		super.getProductInfo();
 		System.out.println("Codice IMEI: " + this.imei);
-		System.out.println("RAM: " + this.ramGB + "GB");
+		System.out.println("RAM: " + this.memoryGB + "GB");
 		System.out.println("************************************");
 
+	}
+
+	@Override
+	public String toString() {
+		String infos = super.toString() + "\n" + "Memoria: " + this.getMemory() + "GB" + "\n" + "IMEI: "
+				+ this.getImei();
+		return infos;
 	}
 
 }
