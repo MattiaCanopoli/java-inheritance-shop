@@ -12,19 +12,22 @@ public class Carrello {
 		// TODO Auto-generated method stub
 
 		/**
-		 * create a new Scanner variable to get user input
+		 * creation of a new Scanner variable to get user input
 		 */
 		Scanner scanner = new Scanner(System.in);
 		/**
-		 * declares variable to mach instance variables, to be used in costructor
+		 * declaration of standard variables for Prodotto Class, to be used in object
+		 * constructor
 		 */
 		String input;
 		String brand;
 		String productName;
 		float price;
-		int vat = 22;
+		int vat;
 
+		// newProduct set to true to enter while loop
 		boolean newProduct = true;
+
 		while (newProduct) {
 
 			System.out.println("Selezionare il prodotto da inserire:\n" + "1. Smartphone\n" + "2. TV\n" + "3. Cuffie");
@@ -40,6 +43,10 @@ public class Carrello {
 			price = scanner.nextFloat();
 			scanner.nextLine();
 
+			System.out.println("Inserisci l'aliquota IVA:");
+			vat = scanner.nextInt();
+			scanner.nextLine();
+
 			switch (input) {
 
 			case "smartphone":
@@ -47,13 +54,14 @@ public class Carrello {
 				// variable declaration for Smartphone Class
 				int memory;
 
-				// richiedi argomenti per costruttore Smartphone
+				// get memory value from user input
 				System.out.println("Inserisci la quantità di memoria in GB:");
 				memory = scanner.nextInt();
 				scanner.nextLine();
-				// crea una nuova istanza per oggetto Smartphone
-				Smartphone smartphone = new Smartphone(productName, brand, price, vat, memory);
 
+				// creation of new Smartphone instance
+				Smartphone smartphone = new Smartphone(productName, brand, price, vat, memory);
+				// print Object type, name, code, price, memory, IMEI code
 				System.out.println("\n" + smartphone.toString());
 				break;
 
@@ -63,62 +71,53 @@ public class Carrello {
 				int display;
 				boolean smart;
 
-				String ask = "É una smart-TV? (S/N)";
-
-				smart = CarrelloUtils.verifyInput(ask, "S", "N");
-
+				// ask question to get smart. smart is set to true if "S", to false if "N".
+				// keeps asking if user input is different
+				String question = "É una smart-TV? (S/N)";
+				smart = CarrelloUtils.verifyInput(question, "S", "N");
+				// get display size from user
 				System.out.println("Inserisci la dimensione del display:");
 				display = scanner.nextInt();
 				scanner.nextLine();
-
+				// creation of a new Televisore instance
 				Televisore tv = new Televisore(productName, brand, price, vat, display, smart);
+				// print Object type, name, code, price, display size, technology
 				System.out.println("\n" + tv.toString());
 
 				break;
 
 			case "cuffie":
 			case "3":
-
+				// variable declaration for Cuffie class
 				boolean wifi;
 				String color;
-
-				ask = "Sono cuffie Wi-Fi? (S/N)";
-				wifi = CarrelloUtils.verifyInput(ask, "S", "N");
-
+				// ask question to get wifi. wifi is set to true if "S", to false if "N".
+				// keeps asking if user input is different
+				question = "Sono cuffie Wi-Fi? (S/N)";
+				wifi = CarrelloUtils.verifyInput(question, "S", "N");
+				// get color from user input
 				System.out.println("Inserisci il colore del prodotto:");
 				color = scanner.nextLine();
-
+				// creation of a new Cuffie instance
 				Cuffie cuffie = new Cuffie(productName, brand, price, vat, color, wifi);
+				// print Object type, name, code, price, color, connectivity
 				System.out.println("\n" + cuffie.toString());
 
 				break;
 
 			} // switch close
 
-			boolean invalidInput = false;
+			// ask question to user. newProduct is set to true if "S", to false if "N".
+			// keeps asking if user input is different
+			// if newProduct is true, restart program and ask for new entry
+			String question = "\n" + "Si desidera inserire un nuovo prodotto (S/N)?";
+			newProduct = CarrelloUtils.verifyInput(question, "S", "N");
 
-			do {
-
-				System.out.println("\n" + "Si desidera inserire un nuovo prodotto (S/N)?");
-				input = scanner.nextLine();
-
-				if (input.toUpperCase().equals("N")) {
-					newProduct = false;
-					invalidInput = false;
-				} else if (input.toUpperCase().equals("S")) {
-					newProduct = true;
-					invalidInput = false;
-				} else {
-					System.out.println(
-							"il valore inserito non è valido. inserire \"S\" per continuare o \"N\" per interrompere");
-					invalidInput = true;
-				}
-
-			} while (invalidInput); // close do while loop
-
-		} // close while loop
+		} // while loop close
 
 		scanner.close();
+
+		System.out.println("Inserimento prodotti completato");
 
 	}
 
