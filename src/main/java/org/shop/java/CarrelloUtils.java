@@ -5,13 +5,23 @@ import java.util.Scanner;
 public class CarrelloUtils {
 
 	/**
-	 * determine if the user input is valid. keep asking until user provides a valid
-	 * input
+	 * Ask a <strong>question</strong> to user, expecting a certain input
+	 * <strong>positiveInput</strong> or <strong>negativeInput</strong>.<br />
+	 * Expected input should be displayed in question (i.e. "Continue? (Y/N))<br />
+	 * Determines if user input matches <strong>positiveInput</strong> or
+	 * <strong>negativeInput</strong>.<br />
+	 * Input is converted to lower case to prevent case sensitivity.<br />
+	 * Return <strong>true</strong> for <strong>positiveInput</strong>.<br />
+	 * Return <strong>false</strong> for <strong>negativeInput</strong>.<br />
+	 * If user input does not matches <strong>positiveInput</strong> or
+	 * <strong>negativeInput</strong>, informs user of the invalid input and ask for
+	 * a valid one, printing valid answer (i.e. "Input is not valid. Type "Y" for
+	 * "yes" of "N" for "No") <br />
+	 * Keep asking until user provides a valid input.
 	 * 
-	 * @param question      String. input question argument will be printed to ask
-	 *                      for input
-	 * @param positiveInput String. compared to user input
-	 * @param negativeInput String. compared to user input
+	 * @param question      input question argument will be printed to ask for input
+	 * @param positiveInput compared to user input
+	 * @param negativeInput compared to user input
 	 * @return boolean
 	 */
 	public static boolean verifyInput(String question, String positiveInput, String negativeInput) {
