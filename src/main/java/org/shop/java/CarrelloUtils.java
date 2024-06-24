@@ -14,7 +14,7 @@ public class CarrelloUtils {
 	 * @param negativeInput String. compared to user input
 	 * @return boolean
 	 */
-	public static Boolean verifyInput(String question, String positiveInput, String negativeInput) {
+	public static boolean verifyInput(String question, String positiveInput, String negativeInput) {
 
 		Scanner scanner = new Scanner(System.in);
 		String yesOrNo;
