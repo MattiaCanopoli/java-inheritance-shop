@@ -24,71 +24,99 @@ public class Carrello {
 		float price;
 		int vat = 22;
 
-		System.out.println("Selezionare il prodotto da inserire:\n" + "1. Smartphone\n" + "2. TV\n" + "3. Cuffie");
-		input = scanner.nextLine().toLowerCase();
+		boolean newProduct = true;
+		while (newProduct) {
 
-		System.out.println("Inserisci il brand:");
-		brand = scanner.nextLine();
+			System.out.println("Selezionare il prodotto da inserire:\n" + "1. Smartphone\n" + "2. TV\n" + "3. Cuffie");
+			input = scanner.nextLine().toLowerCase();
 
-		System.out.println("Inserisci il nome del prodotto:");
-		productName = scanner.nextLine();
+			System.out.println("Inserisci il brand:");
+			brand = scanner.nextLine();
 
-		System.out.println("Inserisci il prezzo:");
-		price = scanner.nextFloat();
-		scanner.nextLine();
+			System.out.println("Inserisci il nome del prodotto:");
+			productName = scanner.nextLine();
 
-		switch (input) {
+			System.out.println("Inserisci il prezzo:");
+			price = scanner.nextFloat();
+			scanner.nextLine();
 
-		case "smartphone":
-		case "1":
-			// variable declaration for Smartphone Class
-			int memory;
+			switch (input) {
 
-			// richiedi argomenti per costruttore Smartphone
-			System.out.println("Inserisci la quantità di memoria in GB:");
-			memory = scanner.nextInt();
-			// crea una nuova istanza per oggetto Smartphone
-			Smartphone smartphone = new Smartphone(productName, brand, price, vat, memory);
-			smartphone.getProductInfo();
+			case "smartphone":
+			case "1":
+				// variable declaration for Smartphone Class
+				int memory;
 
-			break;
+				// richiedi argomenti per costruttore Smartphone
+				System.out.println("Inserisci la quantità di memoria in GB:");
+				memory = scanner.nextInt();
+				scanner.nextLine();
+				// crea una nuova istanza per oggetto Smartphone
+				Smartphone smartphone = new Smartphone(productName, brand, price, vat, memory);
 
-		case "tv":
-		case "2":
-			// variable declaration for Televisore class
-			int display;
-			boolean smart;
+				System.out.println("\n" + smartphone.toString());
+				break;
 
-			String ask = "É una smart-TV? (S/N)";
+			case "tv":
+			case "2":
+				// variable declaration for Televisore class
+				int display;
+				boolean smart;
 
-			smart = CarrelloUtils.verifyInput(ask, "S", "N");
+				String ask = "É una smart-TV? (S/N)";
 
-			System.out.println("Inserisci la dimensione del display:");
-			display = scanner.nextInt();
+				smart = CarrelloUtils.verifyInput(ask, "S", "N");
 
-			Televisore tv = new Televisore(productName, brand, price, vat, display, smart);
-			tv.getProductInfo();
+				System.out.println("Inserisci la dimensione del display:");
+				display = scanner.nextInt();
+				scanner.nextLine();
 
-			break;
+				Televisore tv = new Televisore(productName, brand, price, vat, display, smart);
+				System.out.println("\n" + tv.toString());
 
-		case "cuffie":
-		case "3":
+				break;
 
-			boolean wifi;
-			String color;
+			case "cuffie":
+			case "3":
 
-			ask = "Sono cuffie Wi-Fi? (S/N)";
-			wifi = CarrelloUtils.verifyInput(ask, "S", "N");
+				boolean wifi;
+				String color;
 
-			System.out.println("Inserisci il colore del prodotto:");
-			color = scanner.nextLine();
+				ask = "Sono cuffie Wi-Fi? (S/N)";
+				wifi = CarrelloUtils.verifyInput(ask, "S", "N");
 
-			Cuffie cuffie = new Cuffie(productName, brand, price, vat, color, wifi);
-			cuffie.getProductInfo();
+				System.out.println("Inserisci il colore del prodotto:");
+				color = scanner.nextLine();
 
-			break;
+				Cuffie cuffie = new Cuffie(productName, brand, price, vat, color, wifi);
+				System.out.println("\n" + cuffie.toString());
 
-		} // switch close
+				break;
+
+			} // switch close
+
+			boolean invalidInput = false;
+
+			do {
+
+				System.out.println("\n" + "Si desidera inserire un nuovo prodotto (S/N)?");
+				input = scanner.nextLine();
+
+				if (input.toUpperCase().equals("N")) {
+					newProduct = false;
+					invalidInput = false;
+				} else if (input.toUpperCase().equals("S")) {
+					newProduct = true;
+					invalidInput = false;
+				} else {
+					System.out.println(
+							"il valore inserito non è valido. inserire \"S\" per continuare o \"N\" per interrompere");
+					invalidInput = true;
+				}
+
+			} while (invalidInput); // close do while loop
+
+		} // close while loop
 
 		scanner.close();
 
