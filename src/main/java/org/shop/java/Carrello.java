@@ -16,11 +16,11 @@ public class Carrello {
 		 * creation of a new Scanner variable to get user input
 		 */
 		Scanner scanner = new Scanner(System.in);
+		String input;
 		/**
 		 * declaration of standard variables for Prodotto Class, to be used in object
 		 * constructor
 		 */
-		String input;
 		String brand;
 		String productName;
 		float price;
@@ -34,6 +34,10 @@ public class Carrello {
 
 		while (newProduct) {
 
+			// TODO: Inserire array di Strings con tipologie per stampare il messaggio
+			// (for...println).
+			// TODO: Inserire ciclo do while per validare l'inserimento prima di richiedere
+			// i campi standard
 			System.out.println("Selezionare il prodotto da inserire:\n" + "1. Smartphone\n" + "2. TV\n" + "3. Cuffie");
 			input = scanner.nextLine().toLowerCase();
 
@@ -114,6 +118,10 @@ public class Carrello {
 				// print Object type, name, code, price, color, connectivity
 				System.out.println("\n" + cuffie.toString());
 
+				break;
+
+			default:
+				System.out.println("Il prodotto inserito è inesistente");
 				break;
 
 			} // switch close
