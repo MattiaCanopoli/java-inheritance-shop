@@ -35,16 +35,28 @@ public class Main {
 //		smart1.getProductInfo();
 //ho ereditato il metodo getProductInfo, ma se volessi espanderlo per la sottoclasse smartphone?
 
-//		Televisore tv = new Televisore("TV1", "LG", 358.99f, 22, 49.3f, true);
+//		Televisore tv = new Televisore("TV1", "LG", 358.99f, 22, 49.3f, false);
 //		tv.getProductInfo();
+//
+//		System.out.print(smart1.getClass().getSimpleName());
+//
+//		if (smart1.getClass().getSimpleName().equals("Smartphone")) {
+//			System.out.print(smart1.toString());
 
-		Cuffie cuffie = new Cuffie("M1070", "Monolith", 444.44f, 22, "Black", false);
+		Prodotto[] products = new Prodotto[0];
 
-		cuffie.getProductInfo();
+		System.out.println(products.length);
 
-		cuffie.setPrice(364.30f);
+		Televisore tv = new Televisore("TV1", "LG", 358.99f, 22, 49.3f, false);
 
-		cuffie.getProductInfo();
+		Prodotto[] newProduct = new Prodotto[products.length + 1];
+
+		for (int i = 0; i < newProduct.length; i++) {
+			newProduct[i] = tv;
+		}
+		products = newProduct;
+
+		System.out.print(products.length);
 
 	}
 
